@@ -145,3 +145,28 @@ group by子句：group by表示分组的含义，根据指定的字段，将数�
  	1、having是在group by子句之后，可以针对分组数据进行统计筛选，但是where不行。
  	2、where不能使用聚合函数，聚合函数是用在group by分组的时候where已经运行完毕了，having在group by分组之后，可以使用聚合函数或者字段别名（where是从表中取数据，别名是在数据进入到内存之后才有的）
  	ps:having是在group by之后，group by是在where之后，where的时候表示将数据从磁盘拿到内存，where之后的所有操作都是内存操作。
+
+ order by排序：根据校对规则对数据进行排序
+ 	基本语法: order by 字段 [asc|desc] //asc升序，默认；desc降序
+ 	多字段排序：order by 字段1 [asc|desc], 字段2 [asc|desc]
+
+ limit子句
+ 	limit限制子句，主要是用来限制记录数量获取
+ 	记录数限制：	
+ 		纯粹的限制获取的数量，从第一条到指定的数量
+ 		基本语法：limit 数量;
+ 		ps:limit通常在查询的时候如果限定为一条记录的时候，使用的比较多，有时候获取多条记录并不能解决业务问题，但是会增加服务器的压力
+ 	分页：
+ 		利用limit来限制获取指定区间的数据。
+ 		基本语法：limit offset, length; //offset 偏移量：从哪开始，length就是具体的获取多少条记录
+ 		mysql中记录数从0开始，eg:limit 0,2;表示获取前两条数据
+ 		ps:limit 后面的length表示最多获取对应数量，但是如果数量不够，系统不会强求
+
+
+
+
+
+
+
+
+
